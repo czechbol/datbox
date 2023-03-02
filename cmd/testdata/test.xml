@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list xmlns="http://seznam.gov.cz/ovm/datafile/seznam_ds/v1" source-system="https://www.mojedatovaschranka.cz/sds">
+    <box>
+        <id>mc93668</id>
+        <type>FO</type>
+        <subtype>40</subtype>
+        <name>
+            <person>
+                <firstName>Jan</firstName>
+                <lastName>Novák</lastName>
+            </person>
+            <tradeName></tradeName>
+        </name>
+        <ico></ico>
+        <address>
+            <city>Lhota</city>
+            <district>Lhota</district>
+            <street>Zahradní</street>
+            <cp>5</cp>
+            <co></co>
+            <ce></ce>
+            <zip>99643</zip>
+            <addressPoint>22452429</addressPoint>
+            <state>CZ</state>
+            <fullAddress></fullAddress>
+        </address>
+        <pdz>true</pdz>
+        <ovm>false</ovm>
+        <hierarchy>
+            <isMaster>true</isMaster>
+        </hierarchy>
+        <idOVM></idOVM>
+    </box>
+    <box>
+        <id>uq66zzo</id>
+        <type>PO</type>
+        <subtype>20</subtype>
+        <name>
+        <person>
+            <firstName></firstName>
+            <lastName></lastName>
+        </person>
+        <tradeName>SuperFirma s.r.o.</tradeName>
+        </name>
+        <ico>48726295</ico>
+        <address>
+        <city>Ústí nad Labem</city>
+        <district>Ústí nad Labem-centrum</district>
+        <street>Masarykova</street>
+        <cp>9842</cp>
+        <co>53</co>
+        <zip>98462</zip>
+        <addressPoint>44263755</addressPoint>
+        <state>CZ</state>
+        </address>
+        <pdz>true</pdz>
+        <hierarchy>
+        <isMaster>true</isMaster>
+        </hierarchy>
+    </box>
+    <box>
+        <id>f5ynhg3</id>
+        <type>PFO</type>
+        <subtype>30</subtype>
+        <name>
+            <person>
+                <firstName>Jan</firstName>
+                <lastName>Novák</lastName>
+            </person>
+            <tradeName>Jan Novák</tradeName>
+        </name>
+        <ico></ico>
+        <address>
+            <city>Praha</city>
+            <district>Praha 5</district>
+            <street>Generála Jaroše</street>
+            <cp>27</cp>
+            <co>9874</co>
+            <ce></ce>
+            <zip>23879</zip>
+            <addressPoint>2693746</addressPoint>
+            <state>CZ</state>
+            <fullAddress></fullAddress>
+        </address>
+        <pdz>true</pdz>
+        <ovm>false</ovm>
+        <hierarchy>
+            <isMaster>true</isMaster>
+        </hierarchy>
+        <idOVM></idOVM>
+    </box>
+    <box>
+        <id>wwjaa4f</id>
+        <type>OVM</type>
+        <subtype>10</subtype>
+        <name>
+            <person>
+                <firstName></firstName>
+                <lastName></lastName>
+            </person>
+            <tradeName>Nejvyšší správní soud</tradeName>
+        </name>
+        <ico>75003716</ico>
+        <address>
+            <city>Brno</city>
+            <district>Brno-město</district>
+            <street>Moravské náměstí</street>
+            <cp>611</cp>
+            <co>6</co>
+            <ce></ce>
+            <zip>60200</zip>
+            <addressPoint>19100094</addressPoint>
+            <state>CZ</state>
+            <fullAddress></fullAddress>
+        </address>
+        <pdz>false</pdz>
+        <ovm>true</ovm>
+        <hierarchy>
+            <isMaster>true</isMaster>
+        </hierarchy>
+        <idOVM>75003716</idOVM>
+    </box>
+</list>
