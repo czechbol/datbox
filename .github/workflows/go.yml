@@ -8,6 +8,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
 
@@ -22,7 +23,7 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go build -v ./...
+      run: go build -v ./datbox.go
 
 #    - name: Test
-#      run: go test -v ./...
+#      run: go test -v ./datbox.go
