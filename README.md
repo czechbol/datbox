@@ -1,4 +1,8 @@
 # datbox
+![GitHub](https://img.shields.io/github/license/czechbol/datbox?style=for-the-badge)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/czechbol/datbox?style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/czechbol/datbox/go.yml?style=for-the-badge)
+
 Převádí Otevřená data ze seznamu Datových schránek z XML na jiné formáty
 
 ## Použití
