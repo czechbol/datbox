@@ -5,6 +5,11 @@
 
 Převádí Otevřená data ze seznamu Datových schránek z XML na jiné formáty
 
+## Instalace
+```sh
+go install github.com/czechbol/datbox@latest
+```
+
 ## Použití
 ```
 ❯ datbox -h
