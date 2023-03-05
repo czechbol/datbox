@@ -22,7 +22,8 @@ It can also read from the STDIN stream so you can pipe data to into it.`
 )
 
 type Datbox struct {
-	Output string
+	Format     string
+	OutputFile string
 }
 
 // rootCmd represents the base command when called without any subcommands
@@ -35,7 +36,8 @@ func (d *Datbox) CobraCommand() *cobra.Command {
 		Run:   d.Run,
 	}
 	f := cmd.Flags()
-	f.StringVarP(&d.Output, "output", "o", "json", "Output format. Allows: \"json\",\"yaml\",\"xml\"")
+	f.StringVarP(&d.Format, "format", "f", "json", "Output format. Allows: \"json\",\"yaml\",\"xml\"")
+	f.StringVarP(&d.OutputFile, "output-file", "o", "", "Output file. Otherwise the results will be printed to stdout.")
 
 	return cmd
 }
@@ -68,20 +70,21 @@ func (d *Datbox) Run(cmd *cobra.Command, args []string) {
 		fmt.Println(fmt.Errorf("%w: unable to parse file", errors.New("File read error")))
 		os.Exit(1)
 	}
+	var outData []byte
 
 	switch {
-	case strings.ToLower(d.Output) == "json":
-		if err := OutputJSON(&boxList); err != nil {
+	case strings.ToLower(d.Format) == "json":
+		if err := GetJSON(&boxList, &outData); err != nil {
 			fmt.Println(fmt.Errorf("%w: JSON output failed", errors.New("Output error")))
 			os.Exit(1)
 		}
-	case strings.ToLower(d.Output) == "yaml":
-		if err := OutputYAML(&boxList); err != nil {
+	case strings.ToLower(d.Format) == "yaml":
+		if err := GetYAML(&boxList, &outData); err != nil {
 			fmt.Println(fmt.Errorf("%w: YAML output failed", errors.New("Output error")))
 			os.Exit(1)
 		}
-	case strings.ToLower(d.Output) == "xml":
-		if err := OutputXML(&boxList); err != nil {
+	case strings.ToLower(d.Format) == "xml":
+		if err := GetXML(&boxList, &outData); err != nil {
 			fmt.Println(fmt.Errorf("%w: XML output failed", errors.New("Output error")))
 			os.Exit(1)
 		}
@@ -89,5 +92,11 @@ func (d *Datbox) Run(cmd *cobra.Command, args []string) {
 		fmt.Println(fmt.Errorf("%w: --output, -o Allows only: \"json\",\"yaml\",\"xml\" (default json)", errors.New("Invalid argument")))
 		os.Exit(1)
 	}
+	if d.OutputFile != "" {
+		WriteToFile(&outData, d.OutputFile)
+		os.Exit(0)
+	}
+	fmt.Println(string(outData))
+	os.Exit(0)
 
 }

@@ -3,7 +3,6 @@ package cmd
 import (
 	"encoding/json"
 	"encoding/xml"
-	"fmt"
 	"io/ioutil"
 	"os"
 
@@ -33,30 +32,39 @@ func ParseXML(data []byte, boxList *List) error {
 	return nil
 }
 
-func OutputJSON(boxList *List) error {
-	bytes, err := json.MarshalIndent((*boxList).Items, "", "  ")
+func GetJSON(boxList *List, outData *[]byte) error {
+	var err error
+	*outData, err = json.MarshalIndent((*boxList).Items, "", "  ")
 	if err != nil {
 		return err
 	}
-	fmt.Println(string(bytes))
 	return nil
 }
 
-func OutputYAML(boxList *List) error {
-	bytes, err := yaml.Marshal((*boxList).Items)
+func GetYAML(boxList *List, outData *[]byte) error {
+	var err error
+	*outData, err = yaml.Marshal((*boxList).Items)
 	if err != nil {
 		return err
 	}
-	fmt.Print(string(bytes))
 	return nil
 }
 
-func OutputXML(boxList *List) error {
-	fmt.Println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>")
-	bytes, err := xml.MarshalIndent(*boxList, "", "  ")
+func GetXML(boxList *List, outData *[]byte) error {
+	var err error
+	*outData, err = xml.MarshalIndent(*boxList, "", "  ")
+	// prepend the xml info
+	*outData = append([]byte{1}, []byte("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>")...)
 	if err != nil {
 		return err
 	}
-	fmt.Println(string(bytes))
+	return nil
+}
+
+func WriteToFile(outData *[]byte, file string) error {
+	err := os.WriteFile(file, *outData, 0666)
+	if err != nil {
+		return err
+	}
 	return nil
 }

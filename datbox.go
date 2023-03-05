@@ -7,10 +7,8 @@ import (
 )
 
 func main() {
-
 	err := (&cmd.Datbox{}).CobraCommand().Execute()
 	if err != nil {
 		os.Exit(1)
 	}
-
 }

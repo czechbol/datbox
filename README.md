@@ -23,13 +23,18 @@ Usage:
   datbox <path/to/file.xml> [flags]
 
 Flags:
-  -h, --help            help for datbox
-  -o, --output string   Output format. Allows: "json","yaml","xml" (default "json")
+  -f, --format string        Output format. Allows: "json","yaml","xml" (default "json")
+  -h, --help                 help for datbox
+  -o, --output-file string   Output file. Otherwise the results will be printed to stdout.
 
-❯ datbox -o yaml data.xml > output.yaml
-```
+❯ datbox -f json data.xml -o output.json
 
-Alternativní použití:
-```
-❯ cat data.xml | datbox -o yaml > output.yaml
+
+❯ datbox -f yaml data.xml > output.yaml
+
+
+❯ cat data.xml | datbox -f json -o output.json
+
+
+❯ cat data.xml | datbox -f yaml > output.yaml
 ```
